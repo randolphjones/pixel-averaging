@@ -1,13 +1,13 @@
 /*
   This sketch takes a directory of images and averages their pixels into a single image.
-  Requirements:
-    * All images must be the same resolution
-    * All images must be sequenced in their named folder with a number. The folder lives in the data directory relative to this sketch.
-    * when numbering your images pad them with the appropriate 0s
-    * 0 must be your first sequence number
-    * i.e. data/happy/002.jpg
-    * Adobe bridge is very helpful for the batch renaming of images
-*/
+ Requirements:
+ * All images must be the same resolution
+ * All images must be sequenced in their named folder with a number. The folder lives in the data directory relative to this sketch.
+ * when numbering your images pad them with the appropriate 0s
+ * 0 must be your first sequence number
+ * i.e. data/happy/002.jpg
+ * Adobe bridge is very helpful for the batch renaming of images
+ */
 
 void setup() {
   //reference the name of the image folder you'll be using in the data directory to hold your images
@@ -17,7 +17,7 @@ void setup() {
   //how many digits are in the image's sequence value
   String digits = "000";
   int digitCount = 3;
-  
+
   //images must all be cropped to the same resolution
   //set the canvas size equal to your image resolution
   size(306, 306);
@@ -61,5 +61,9 @@ void setup() {
   finalImg.updatePixels();
   //write the final image out to the canvas
   image(finalImg, 0, 0);
-  
+}
+void draw() {
+  if (mousePressed) {
+    save("final.jpg");
+  }
 }
